@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream-House</title>
+    <script src="./scripts/aframe.min.js"></script>
+    <script src="./script/ada-water.js"></script>
+    <script src="./script/aframe.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!--Asset Management-->
+        <a-assets>
+        <img src="./texture/photo_2023-04-05_23-29-52.jpg" id="sky">
+        <img src="./texture/clear-sunny-sky.jpg" id="sunny">
+        <img src="./texture/grass.jpg" id="grass">
+        <a-asset-item src="./models/Villa1/scene.gltf" id="villa-gltf"></a-asset-item>
+        <a-asset-item src="./models/street light/scene.gltf" id="street-light"></a-asset-item>
+    </a-assets>
+
+       <!--Camera-->
+       <a-entity position="-2 5 40">
+           <a-camera look-controls position="0 0 40">
+               <a-cursor></a-cursor>
+           </a-camera>
+       </a-entity>
+
+       <!--Sky-->
+       <a-sky src="#sunny"></a-sky>
+
+       <!-- House Models -->
+       <a-entity gltf-model="#villa-gltf" position="0 0.1 0">
+           <!-- Swimming Pool -->
+           <a-water
+             opacity="40"
+             side="double"
+             width="20"
+             height="60"
+             base-color="lightblue"
+             foam-color="blue"
+             foam-color="blue"
+             repeat="2"
+             voronoi-points="10"
+             rotation="90 0 0"
+             position="0 0.5 -10"
+           >
+           </a-water>
+       </a-entity>
+       <a-light type="ambient" color="#333333" intensity="2"></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-4.1643 1 14.70074" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-4.13682 1.0746 13.5591" light=""></a-light>  
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-4.13682 1.0746 12.23123" light=""></a-light>     
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-4.13682 1.0746 10.91975" light=""></a-light> 
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-4.13682 1.0746 9.57743" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-19.64713 1.21745 9.57119" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-19.51037 1.21745 10.88753" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-19.19429 1.0746 7.12" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-19.19429 1.0746 8.37629" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="13.95206 1.62261 6.98294" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="13.69584 1.62261 -5.47263" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="11.6696 1.62261 -5.47263" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="-0.6229 1.21745 -16.24393" light=""></a-light>
+       <a-light type="point" intensity="1" color="yellow" distance="5" position="3.57501 1.0746 8.01928" light="intensity: 1.52; distance: 7.17"></a-light>
+
+       <!-- Grass-Models -->
+       <a-entity>
+           <a-plane src="#grass" rotation="-90 0 0" scale="10000 10000" repeat="990 990"></a-plane>
+       </a-entity>
+
+       <!-- Street-Light Models -->
+       <a-entity 
+       gltf-model="#street-light" 
+       position="10.842 -0.00932 22.97396" 
+       scale="0.002 0.002 0.002"
+       rotation="0 90 0"
+       ></a-entity>
+       <a-light type="point" color="yellow" intensity="2" position="-14.76035 4.08276 25.34864" distance="8" target="_blank" rotation="0 -90 0" light=""></a-light>
+
+
+       <a-entity 
+       gltf-model="#street-light" 
+       position="-16.0605 -0.00932 22.35769" 
+       scale="0.002 0.002 0.002"
+       distance="8"
+       rotation="0 90 0"></a-entity>  
+       <a-light type="point" color="yellow" intensity="2" position="10.76035 4.08276 25.34864" distance="8" target="_blank" rotation="0 -90 0" light=""></a-light>    
+       
+    </a-scene>
+    <script>
+      document.querySelector("a-water").setAttribute("animation", {
+        property: "scale",
+        // from: "10 2 1",
+        // to: "2 15 2",
+        dur: 50,
+        loop: true,
+        dir: "alternate",
+        easing: "easeOutElastic",
+      });
+    </script>
+    <a-camera wasd-controls=fly: true; position="0 0 50">
+        
+    </a-camera>
+   
+</body>
+</html>
